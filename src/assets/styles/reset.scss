@@ -1,0 +1,17 @@
+@import './variable';
+* {
+    margin: $zero;
+    padding: $zero;
+}
+li {
+    list-style-type: $none;
+}
+a {
+    display: $block;
+    text-decoration: $none;
+}
+body,
+html,
+#root {
+    height: $fullWidth;
+}
