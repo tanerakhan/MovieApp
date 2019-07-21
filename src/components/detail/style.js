@@ -7,6 +7,14 @@ export const CardDetails = styled.div `
     justify-content: space-around;
     flex-wrap:wrap;
 `; 
+export const BackTo = styled.div `
+color:#4183c4;
+cursor:pointer;
+transition:.5 ease;
+    &:hover{
+        color:#2c5277
+    }
+`; 
 export const DetailHeader = styled.div `
 width:100%;
 height:550px;

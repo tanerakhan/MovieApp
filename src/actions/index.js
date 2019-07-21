@@ -17,7 +17,7 @@ export const search = (query,page) => {
     let searchUrl = `${API_BASE}${SEARCH}${query}&apikey=${API_KEY}&page=${page}`;
     return (dispatch) => {
          axios.get(searchUrl).then((res) => {
-              
+              debugger
                 let searchData = res.data;
                 dispatch(searchResult(searchData))
                         },
