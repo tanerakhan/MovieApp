@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { Placeholder } from 'semantic-ui-react'
 import moment from 'moment';
-import { Link } from 'react-router-dom'
 import localization from 'moment/locale/tr';
-import {CardDetails,DetailHeader,DetailHeaderContent} from './style'
+import {CardDetails,DetailHeader,DetailHeaderContent,BackTo} from './style'
+import {withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
 import LoadIcon from '../hoc/withLoading'
 moment.updateLocale('tr', localization);
@@ -12,6 +12,9 @@ class Index extends Component {
     componentDidMount() {
         const queryId = this.props.match.params.id
         this.props.imdbId(queryId)
+    }
+    backTo = () => {
+        this.props.history.goBack()
     }
     render() {
         const defaultImg = "https://react.semantic-ui.com/images/wireframe/image.png"
@@ -65,7 +68,7 @@ class Index extends Component {
 
                             }
                     </DetailHeader>
-                    <Link to="/" style={{marginTop:'10px'}}><i className="fas fa-home-lg-alt"></i>Back to Homepage</Link>
+                    <BackTo onClick={this.backTo} style={{marginTop:'10px'}}><i className="angle left"></i>Back to Homepage</BackTo>
                 </CardDetails>
             )
         }
@@ -78,4 +81,4 @@ class Index extends Component {
         }
     }
 }
-export default connect((state)=>{return state},actions)(Index)
+export default connect((state)=>{return state},actions)(withRouter(Index))
